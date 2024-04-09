@@ -26,11 +26,11 @@ let package = Package(
             dependencies: ["NoARC"],
             path: "ConnectSDK/Core",
             exclude: ["ConnectSDK*Tests"],
-            sources: ["ConnectSDKDefaultPlatforms.h", "ConnectSDK/core/**/*.{h,m}"],
+            sources: ["ConnectSDKDefaultPlatforms.h", "ConnectSDK/Core/**/*.{h,m}"],
             publicHeadersPath: "ConnectSDK/Core",
             cSettings: [
-                .headerSearchPath("ConnectSDK/core/Frameworks/LGCast"),
-                .headerSearchPath("ConnectSDK/core/Frameworks/asi-http-request/External/Reachability"),
+                .headerSearchPath("ConnectSDK/Core/Frameworks/LGCast"),
+                .headerSearchPath("ConnectSDK/Core/Frameworks/asi-http-request/External/Reachability"),
                 .define("CONNECT_SDK_VERSION", to: "\"2.0.0\""),
                 .define("kConnectSDKWirelessSSIDChanged", to: "\"Connect_SDK_Wireless_SSID_Changed\""),
             ],
@@ -59,7 +59,7 @@ let package = Package(
             sources: ["**/*.{h,m}"],
             publicHeadersPath: "ConnectSDK/modules/google-cast",
             cSettings: [
-                .headerSearchPath("ConnectSDK/core/Frameworks/LGCast"),
+                .headerSearchPath("ConnectSDK/Core/Frameworks/LGCast"),
                 .define("CONNECT_SDK_VERSION", to: "\"2.0.0\""),
             ],
             linkerSettings: [

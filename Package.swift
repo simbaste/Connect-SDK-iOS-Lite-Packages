@@ -18,19 +18,19 @@ let package = Package(
     targets: [
         .target(
             name: "ConnectSDK",
-            dependencies: ["ConnectSDKCore", "ConnectSDKNoARC", "ConnectSDKGoogleCast"],
-            path: "Sources/ConnectSDK"
+            dependencies: ["Core", "NoARC", "GoogleCast"],
+            path: "ConnectSDK"
         ),
         .target(
-            name: "ConnectSDKCore",
+            name: "Core",
             dependencies: ["ConnectSDKNoARC"],
-            path: "Sources/ConnectSDKCore",
+            path: "ConnectSDK/core",
             exclude: ["ConnectSDK*Tests"],
-            sources: ["ConnectSDKDefaultPlatforms.h", "Sources/ConnectSDKCore/**/*.{h,m}"],
-            publicHeadersPath: "Sources/ConnectSDKCore",
+            sources: ["ConnectSDKDefaultPlatforms.h", "ConnectSDK/core/**/*.{h,m}"],
+            publicHeadersPath: "ConnectSDK/core",
             cSettings: [
-                .headerSearchPath("Sources/ConnectSDKCore/Frameworks/LGCast"),
-                .headerSearchPath("Sources/ConnectSDKCore/Frameworks/asi-http-request/External/Reachability"),
+                .headerSearchPath("ConnectSDK/core/Frameworks/LGCast"),
+                .headerSearchPath("ConnectSDK/core/Frameworks/asi-http-request/External/Reachability"),
                 .define("CONNECT_SDK_VERSION", to: "\"2.0.0\""),
                 .define("kConnectSDKWirelessSSIDChanged", to: "\"Connect_SDK_Wireless_SSID_Changed\""),
             ],
@@ -41,25 +41,25 @@ let package = Package(
             ]
         ),
         .target(
-            name: "ConnectSDKNoARC",
-            path: "Sources/ConnectSDKNoARC",
-            exclude: ["ConnectSDK*Tests", "Sources/ConnectSDKNoARC/Frameworks/LGCast/**/*.h"],
-            sources: ["Sources/ConnectSDKNoARC/Frameworks/asi-http-request/External/Reachability/*.{h,m}", "Sources/ConnectSDKNoARC/Frameworks/asi-http-request/Classes/*.{h,m}"],
+            name: "NoARC",
+            path: "ConnectSDK/NoARC",
+            exclude: ["ConnectSDK*Tests", "ConnectSDK/NoARC/Frameworks/LGCast/**/*.h"],
+            sources: ["ConnectSDK/NoARC/Frameworks/asi-http-request/External/Reachability/*.{h,m}", "Sources/ConnectSDKNoARC/Frameworks/asi-http-request/Classes/*.{h,m}"],
             cSettings: [
-                .headerSearchPath("Sources/ConnectSDKNoARC/Frameworks/LGCast"),
-                .headerSearchPath("Sources/ConnectSDKNoARC/Frameworks/asi-http-request/External/Reachability"),
+                .headerSearchPath("ConnectSDK/NoARC/Frameworks/LGCast"),
+                .headerSearchPath("ConnectSDK/NoARC/Frameworks/asi-http-request/External/Reachability"),
                 .unsafeFlags(["-w"]),
             ]
         ),
         .target(
-            name: "ConnectSDKGoogleCast",
-            dependencies: ["ConnectSDKCore"],
-            path: "Sources/modules/google-cast",
+            name: "GoogleCast",
+            dependencies: ["ConnectSDK/core"],
+            path: "ConnectSDK/modules/google-cast",
             exclude: ["*Tests"],
             sources: ["**/*.{h,m}"],
-            publicHeadersPath: "Sources/modules/google-cast",
+            publicHeadersPath: "ConnectSDK/modules/google-cast",
             cSettings: [
-                .headerSearchPath("Sources/ConnectSDKCore/Frameworks/LGCast"),
+                .headerSearchPath("ConnectSDK/core/Frameworks/LGCast"),
                 .define("CONNECT_SDK_VERSION", to: "\"2.0.0\""),
             ],
             linkerSettings: [

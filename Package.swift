@@ -57,7 +57,7 @@ let package = Package(
             path: "Sources/modules/google-cast",
             exclude: ["*Tests"],
             sources: ["**/*.{h,m}"],
-            publicHeadersPath: "modules/google-cast",
+            publicHeadersPath: "Sources/modules/google-cast",
             cSettings: [
                 .headerSearchPath("Sources/ConnectSDKCore/Frameworks/LGCast"),
                 .define("CONNECT_SDK_VERSION", to: "\"2.0.0\""),

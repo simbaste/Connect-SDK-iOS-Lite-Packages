@@ -18,7 +18,7 @@ let package = Package(
     targets: [
         .target(
             name: "ConnectSDK",
-            dependencies: ["ConnectSDKCore", "ConnectSDKNoARC"],
+            dependencies: ["ConnectSDKCore", "ConnectSDKNoARC", "ConnectSDKGoogleCast"],
             path: "Sources/ConnectSDK"
         ),
         .target(
@@ -49,6 +49,21 @@ let package = Package(
                 .headerSearchPath("Sources/ConnectSDKNoARC/Frameworks/LGCast"),
                 .headerSearchPath("Sources/ConnectSDKNoARC/Frameworks/asi-http-request/External/Reachability"),
                 .unsafeFlags(["-w"]),
+            ]
+        ),
+        .target(
+            name: "ConnectSDKGoogleCast",
+            dependencies: ["ConnectSDKCore"],
+            path: "Sources/modules/google-cast",
+            exclude: ["*Tests"],
+            sources: ["**/*.{h,m}"],
+            publicHeadersPath: "Sources/modules/google-cast",
+            cSettings: [
+                .headerSearchPath("Sources/ConnectSDKCore/Frameworks/LGCast"),
+                .define("CONNECT_SDK_VERSION", to: "\"2.0.0\""),
+            ],
+            linkerSettings: [
+                .linkedFramework("GoogleCast"),
             ]
         ),
     ]

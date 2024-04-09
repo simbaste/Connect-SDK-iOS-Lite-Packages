@@ -62,7 +62,6 @@ let package = Package(
             ],
             linkerSettings: [
                 .linkedFramework("GoogleCast"),
-                .unsafeFlags(["-F", "$(PODS_ROOT)/google-cast-sdk/GoogleCastSDK-2.7.1-Release"]),
             ]
         ),
     ]

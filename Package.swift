@@ -18,7 +18,9 @@ let package = Package(
     targets: [
         .target(
             name: "ConnectSDK",
-            dependencies: ["ConnectSDKCore", "ConnectSDKNoARC", "ConnectSDKGoogleCast"]),
+            dependencies: ["ConnectSDKCore", "ConnectSDKNoARC", "ConnectSDKGoogleCast"],
+            path: "Sources/ConnectSDK"
+        ),
         .target(
             name: "ConnectSDKCore",
             dependencies: ["ConnectSDKNoARC"],

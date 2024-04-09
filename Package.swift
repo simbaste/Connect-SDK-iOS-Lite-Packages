@@ -24,6 +24,7 @@ let package = Package(
         .target(
             name: "Core",
             dependencies: ["NoARC"],
+            url: "https://github.com/ConnectSDK/Connect-SDK-iOS-Core.git",
             path: "ConnectSDK/Core",
             exclude: ["ConnectSDK*Tests"],
             sources: ["ConnectSDKDefaultPlatforms.h", "ConnectSDK/Core/**/*.{h,m}"],

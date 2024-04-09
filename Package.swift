@@ -23,7 +23,7 @@ let package = Package(
         ),
         .target(
             name: "Core",
-            dependencies: ["ConnectSDKNoARC"],
+            dependencies: ["NoARC"],
             path: "ConnectSDK/Core",
             exclude: ["ConnectSDK*Tests"],
             sources: ["ConnectSDKDefaultPlatforms.h", "ConnectSDK/core/**/*.{h,m}"],

@@ -44,7 +44,7 @@ let package = Package(
             name: "NoARC",
             path: "ConnectSDK/NoARC",
             exclude: ["ConnectSDK*Tests", "ConnectSDK/NoARC/Frameworks/LGCast/**/*.h"],
-            sources: ["ConnectSDK/NoARC/Frameworks/asi-http-request/External/Reachability/*.{h,m}", "Sources/ConnectSDKNoARC/Frameworks/asi-http-request/Classes/*.{h,m}"],
+            sources: ["ConnectSDK/NoARC/Frameworks/asi-http-request/External/Reachability/*.{h,m}", "ConnectSDK/NoARC/Frameworks/asi-http-request/Classes/*.{h,m}"],
             cSettings: [
                 .headerSearchPath("ConnectSDK/NoARC/Frameworks/LGCast"),
                 .headerSearchPath("ConnectSDK/NoARC/Frameworks/asi-http-request/External/Reachability"),

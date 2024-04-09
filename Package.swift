@@ -24,10 +24,10 @@ let package = Package(
         .target(
             name: "Core",
             dependencies: ["ConnectSDKNoARC"],
-            path: "ConnectSDK/core",
+            path: "ConnectSDK/Core",
             exclude: ["ConnectSDK*Tests"],
             sources: ["ConnectSDKDefaultPlatforms.h", "ConnectSDK/core/**/*.{h,m}"],
-            publicHeadersPath: "ConnectSDK/core",
+            publicHeadersPath: "ConnectSDK/Core",
             cSettings: [
                 .headerSearchPath("ConnectSDK/core/Frameworks/LGCast"),
                 .headerSearchPath("ConnectSDK/core/Frameworks/asi-http-request/External/Reachability"),
@@ -53,7 +53,7 @@ let package = Package(
         ),
         .target(
             name: "GoogleCast",
-            dependencies: ["ConnectSDK/core"],
+            dependencies: ["Core"],
             path: "ConnectSDK/modules/google-cast",
             exclude: ["*Tests"],
             sources: ["**/*.{h,m}"],

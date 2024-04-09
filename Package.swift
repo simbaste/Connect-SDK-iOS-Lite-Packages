@@ -54,7 +54,7 @@ let package = Package(
         .target(
             name: "ConnectSDKGoogleCast",
             dependencies: ["ConnectSDKCore"],
-            path: "modules/google-cast",
+            path: "Sources/modules/google-cast",
             exclude: ["*Tests"],
             sources: ["**/*.{h,m}"],
             publicHeadersPath: "modules/google-cast",
